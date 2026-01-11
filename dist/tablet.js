@@ -63,7 +63,7 @@ async function loadPage(page) {
       // チャンネル名（追加）
       const channelName = document.createElement("div");
       channelName.className = "channel-name";
-      channelName.textContent = item.channelTitle; // APIから取得したチャンネル名
+      channelName.textContent = item.channelName; // APIから取得したチャンネル名
       textContainer.appendChild(channelName);
     
       // 開始時間
@@ -114,4 +114,5 @@ monitorToggle.onclick = () => {
 
 // 初期ページロード
 loadPage(1);
+
 
