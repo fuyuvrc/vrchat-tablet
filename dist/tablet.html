@@ -125,13 +125,17 @@
   /* 下部バー */
   #bottom-bar {
     display: flex;
-    align-items: center;
+    align-items: center; /* 垂直方向の中央揃え */
     gap: 5px;
+    width: 100%; /* バー全体の幅を確保 */
   }
-  #url-input, #play-button {
-    height: 20px; /* 高さを揃える */
-    font-size: 10px;
-  }
+#url-input, #play-button {
+  height: 22px;
+  font-size: 12px;
+  box-sizing: border-box; /* 重要：ボーダーを含めてそろえる */
+  display: flex;         /* 中のテキストの垂直位置を安定させる */
+  align-items: center;
+}
   #url-input {
     width: 150px;
     padding: 0 8px;
@@ -153,6 +157,7 @@
   #volume {
     width: 150px;
     accent-color: #000; /* 選択色黒 */
+    margin-left: auto; /* ★ これで右端に寄ります */
   }
 </style>
 </head>
@@ -180,6 +185,7 @@
 <script src="tablet.js"></script>
 </body>
 </html>
+
 
 
 
