@@ -69,7 +69,16 @@ async function loadPage(page) {
       // 開始時間
       const start = document.createElement("div");
       start.className = "video-start";
-      start.textContent = new Date(item.startTime).toLocaleString();
+      
+      const startDate = new Date(item.startTime);
+      const formattedDate = startDate.toLocaleString('ja-JP', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit'
+      });      
+      start.textContent = `${formattedDate} に配信開始`;
       textContainer.appendChild(start);
     
       // テキストコンテナを info に追加
@@ -93,11 +102,13 @@ function selectVideo(video, div) {
   urlInput.value = video.url;
 
   console.log("選択された動画ID:", video.videoId);
+  playButton.click(); 
 }
 
 // 再生ボタン
 playButton.onclick = () => {
   const url = urlInput.value;
+  if (!url) return;
   console.log("再生URL:", url);
 }
 
@@ -114,5 +125,6 @@ monitorToggle.onclick = () => {
 
 // 初期ページロード
 loadPage(1);
+
 
 
