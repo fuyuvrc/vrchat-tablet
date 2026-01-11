@@ -110,8 +110,8 @@
   .video-info {
     display: flex;       /* 横並びにする */
     flex-direction: row; /* アイコンを左、テキストを右 */
-    padding: 8px 5px;    /* 左右の余白をサムネイルと合わせる */
-    gap: 8px;           /* アイコンとテキストの間の距離 */
+    padding: 8px /*5px*/;    /* 左右の余白をサムネイルと合わせる */
+    gap: 3px;           /* アイコンとテキストの間の距離 */
   }
   
   /* チャンネルアイコン（左端をサムネイルと揃える） */
@@ -193,7 +193,7 @@
     width: 200px;
     accent-color: #000; /* 選択色黒 */
     margin-left: auto; /* ★ これで右端に寄ります */
-    margin-right: 50px; /* ★ 右側に余白を追加 */
+    margin-right: 120px; /* ★ 右側に余白を追加 */
   }
 </style>
 </head>
@@ -221,6 +221,7 @@
 <script src="tablet.js"></script>
 </body>
 </html>
+
 
 
 
