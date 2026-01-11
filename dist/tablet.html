@@ -6,17 +6,17 @@
 <style>
   body {
     font-family: sans-serif;
-    background: #111;
-    color: #fff;
+    background: #fff; /* 背景白 */
+    color: #000;      /* 文字黒 */
     margin: 0;
     padding: 10px;
   }
 
   /* タブレット全体 */
   #tablet {
-    width: 960px; /* 横長16:9のイメージ */
+    width: 960px; /* 横長16:9 */
     height: 540px;
-    background: #222;
+    background: #fff;
     border-radius: 15px;
     padding: 10px;
     box-sizing: border-box;
@@ -34,6 +34,10 @@
     padding: 5px 10px;
     font-size: 14px;
     cursor: pointer;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
   }
 
   /* 動画グリッド */
@@ -46,26 +50,37 @@
     margin-bottom: 10px;
   }
   .video-item {
-    background: #333;
+    background: #fff;
     border: 2px solid transparent;
     border-radius: 5px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 5px;
+    justify-content: flex-start;
+    padding: 0;
+    overflow: hidden;
   }
-  .video-item.selected { border-color: yellow; }
-  .thumbnail { width: 100%; border-radius: 5px; }
+  .video-item.selected { border-color: #000; }
+
+  /* サムネイル16:9固定 */
+  .thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* 高さ自動で16:9 */
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #ccc;
+  }
+
   .video-info {
     display: flex;
     flex-direction: column;
     font-size: 12px;
-    margin-top: 2px;
+    padding: 5px;
   }
   .channel-row {
     display: flex;
     align-items: center;
+    margin-bottom: 2px;
   }
   .channel-icon {
     width: 20px;
@@ -73,8 +88,17 @@
     border-radius: 50%;
     margin-right: 5px;
   }
-  .video-title { font-weight: bold; flex-grow: 1; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-  .video-start { font-size: 10px; color: #ccc; }
+  .video-title {
+    font-weight: bold;
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .video-start {
+    font-size: 10px;
+    color: #666;
+  }
 
   /* ページボタン */
   #pagination {
@@ -86,18 +110,45 @@
     padding: 5px 10px;
     font-size: 14px;
     cursor: pointer;
+    background: #fff;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 5px;
   }
-  #pagination button.active { background: yellow; color: #000; }
+  #pagination button.active { background: #000; color: #fff; }
 
   /* 下部バー */
   #bottom-bar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 5px;
   }
-  #url-input { flex-grow: 1; padding: 5px; font-size: 14px; }
-  #play-button { margin-left: 5px; padding: 5px 10px; font-size: 14px; cursor: pointer; }
-  #volume { width: 150px; }
+  #url-input, #play-button {
+    height: 32px; /* 高さを揃える */
+    font-size: 14px;
+  }
+  #url-input {
+    flex-grow: 1;
+    padding: 0 8px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    color: #000;
+    background: #fff;
+  }
+  #play-button {
+    padding: 0 15px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #000;
+    color: #fff;
+  }
+
+  /* 音量スライダー */
+  #volume {
+    width: 150px;
+    accent-color: #000; /* 選択色黒 */
+  }
 </style>
 </head>
 <body>
