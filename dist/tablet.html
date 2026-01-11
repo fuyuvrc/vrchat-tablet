@@ -83,12 +83,12 @@
     margin-bottom: 2px;
   }
   .channel-icon {
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     margin-right: 5px;
-    border: 1px solid #f1f3f4;
-    border-radius: 5px;
+    border: 1px solid #666;
+    object-fit: cover;
   }
   .video-title {
     font-weight: bold;
@@ -100,9 +100,16 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  .channel-name,
   .video-start {
     font-size: 10px;
     color: #666;
+  }
+  .channel-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
   }
 
   /* ページボタン */
@@ -131,13 +138,13 @@
   }
 #url-input, #play-button {
   height: 22px;
-  font-size: 12px;
+  font-size: 10px;
   box-sizing: border-box; /* 重要：ボーダーを含めてそろえる */
   display: flex;         /* 中のテキストの垂直位置を安定させる */
   align-items: center;
 }
   #url-input {
-    width: 150px;
+    width: 180px;
     padding: 0 8px;
     border: 1px solid #000;
     border-radius: 5px;
@@ -151,11 +158,12 @@
     cursor: pointer;
     background: #000;
     color: #fff;
+    line-height: 1; /* ボタン内の文字の浮きを抑える */
   }
 
   /* 音量スライダー */
   #volume {
-    width: 150px;
+    width: 200px;
     accent-color: #000; /* 選択色黒 */
     margin-left: auto; /* ★ これで右端に寄ります */
   }
@@ -164,7 +172,7 @@
 <body>
   <div id="tablet">
     <div id="top-bar">
-      <button id="monitor-toggle">ON/OFF</button>
+      <button id="monitor-toggle">⏻</button>
     </div>
 
     <div id="grid">読み込み中…</div>
@@ -177,7 +185,7 @@
 
     <div id="bottom-bar">
       <input type="text" id="url-input" placeholder="動画URLを入力">
-      <button id="play-button">再生</button>
+      <button id="play-button">▶</button>
       <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
     </div>
   </div>
@@ -185,6 +193,7 @@
 <script src="tablet.js"></script>
 </body>
 </html>
+
 
 
 
