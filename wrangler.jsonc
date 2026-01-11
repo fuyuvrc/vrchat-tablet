@@ -2,7 +2,6 @@
   "name": "vrchat-tablet",
   "compatibility_date": "2026-01-11",
   "site": {
-    "bucket": "./main",
-    "entry-point": "workers-site"
+    "bucket": "./main"
   }
 }
