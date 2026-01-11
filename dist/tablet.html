@@ -71,6 +71,7 @@
   #pagination button.active {
     background: #000;
     color: #fff;
+    border: 1px solid #000;
   }
 
   /* 動画グリッド */
@@ -96,53 +97,58 @@
   .video-item.selected { border-color: #000; }
 
   /* サムネイル16:9固定 */
+  /* サムネイル（左端の基準） */
   .thumbnail {
     width: 100%;
-    aspect-ratio: 16 / 9; /* 高さ自動で16:9 */
+    aspect-ratio: 16 / 9;
     object-fit: cover;
     display: block;
     border-bottom: 1px solid #ccc;
   }
-
+  
+  /* 情報エリア全体のレイアウト */
   .video-info {
-    display: flex;
-    flex-direction: column;
-    font-size: 12px;
-    padding: 5px;
+    display: flex;       /* 横並びにする */
+    flex-direction: row; /* アイコンを左、テキストを右 */
+    padding: 8px 5px;    /* 左右の余白をサムネイルと合わせる */
+    gap: 8px;           /* アイコンとテキストの間の距離 */
   }
-  .channel-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2px;
-  }
+  
+  /* チャンネルアイコン（左端をサムネイルと揃える） */
   .channel-icon {
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    margin-right: 5px;
-    /* border: 1px solid #666; */
     object-fit: cover;
+    flex-shrink: 0;      /* アイコンが潰れないように固定 */
   }
+  
+  /* テキストエリア（タイトル、名前、開始時間をまとめる） */
+  .text-container {
+    display: flex;
+    flex-direction: column; /* 縦に並べる */
+    min-width: 0;           /* はみ出し防止（ellipsisを効かせるため） */
+  }
+  
   .video-title {
     font-weight: bold;
     font-size: 12px;
     line-height: 1.3;
+    margin-bottom: 4px;     /* 下の要素との隙間 */
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
   }
+  
   .channel-name,
   .video-start {
     font-size: 10px;
     color: #666;
-  }
-  .channel-name {
+    line-height: 1.4;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: block;
   }
 
   /* 下部バー */
@@ -211,6 +217,7 @@
 <script src="tablet.js"></script>
 </body>
 </html>
+
 
 
 
