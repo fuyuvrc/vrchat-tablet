@@ -159,23 +159,26 @@
     width: 100%; /* バー全体の幅を確保 */
   }
 #url-input, #play-button {
-  height: 22px;
+  height: 25px;
   font-size: 10px;
   box-sizing: border-box; /* 重要：ボーダーを含めてそろえる */
   display: flex;         /* 中のテキストの垂直位置を安定させる */
   align-items: center;
 }
   #url-input {
-    width: 180px;
+    width: 250px;
     padding: 0 8px;
     border: 1px solid #666;
     border-radius: 5px;
     color: #000;
     background: #fff;
+    margin-left: 50px; /* ★ 左側に余白を追加 */
   }
   #play-button {
-    width: 22px;        /* 高さと同じ値に設定して正方形にする */
+    width: 25px;        /* 高さと同じ値に設定して正方形にする */
     padding: 0;         /* 余白をリセットしてサイズを固定 */
+    display: flex;           /* 追加：中央揃えを確実に効かせるため */
+    align-items: center;      /* 追加：中央揃えを確実に効かせるため */
     justify-content: center; /* ボタン内の文字を左右中央に */
     border: 1px solid #000;
     border-radius: 5px;
@@ -190,6 +193,7 @@
     width: 200px;
     accent-color: #000; /* 選択色黒 */
     margin-left: auto; /* ★ これで右端に寄ります */
+    margin-right: 50px; /* ★ 右側に余白を追加 */
   }
 </style>
 </head>
@@ -217,6 +221,7 @@
 <script src="tablet.js"></script>
 </body>
 </html>
+
 
 
 
