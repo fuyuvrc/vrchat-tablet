@@ -2,6 +2,6 @@
   "name": "vrchat-tablet",
   "compatibility_date": "2026-01-11",
   "assets": {
-    "bucket": "./dist"
+    "directory": "./dist"
   }
 }
