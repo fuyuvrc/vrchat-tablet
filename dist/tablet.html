@@ -33,7 +33,7 @@
   #monitor-toggle,
   #pagination button {
     /* 正方形のサイズ指定（お好みの数値に変えてください） */
-    width: 25px;
+    width: 30px;
     height: 25px;
     
     /* 文字を上下左右の中央に配置 */
@@ -80,7 +80,6 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 10px;
-    flex-grow: 1;
     margin-bottom: 10px;
   }
   .video-item {
@@ -108,10 +107,11 @@
   
   /* 情報エリア全体のレイアウト */
   .video-info {
+    width: 100%;
     display: flex;       /* 横並びにする */
     flex-direction: row; /* アイコンを左、テキストを右 */
     padding: 8px /*5px*/;    /* 左右の余白をサムネイルと合わせる */
-    gap: 3px;           /* アイコンとテキストの間の距離 */
+    gap: 8px;           /* アイコンとテキストの間の距離 */
   }
   
   /* チャンネルアイコン（左端をサムネイルと揃える） */
@@ -175,7 +175,7 @@
     margin-left: 50px; /* ★ 左側に余白を追加 */
   }
   #play-button {
-    width: 25px;        /* 高さと同じ値に設定して正方形にする */
+    width: 30px;        /* 高さと同じ値に設定して正方形にする */
     padding: 0;         /* 余白をリセットしてサイズを固定 */
     display: flex;           /* 追加：中央揃えを確実に効かせるため */
     align-items: center;      /* 追加：中央揃えを確実に効かせるため */
@@ -190,7 +190,7 @@
 
   /* 音量スライダー */
   #volume {
-    width: 200px;
+    width: 180px;
     accent-color: #000; /* 選択色黒 */
     margin-left: auto; /* ★ これで右端に寄ります */
     margin-right: 120px; /* ★ 右側に余白を追加 */
@@ -221,6 +221,7 @@
 <script src="tablet.js"></script>
 </body>
 </html>
+
 
 
 
