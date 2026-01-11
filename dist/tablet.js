@@ -19,7 +19,13 @@ async function loadPage(page) {
 
   try {
     const res = await fetch(`https://vrchat-youtube-live.fuyuvrc.workers.dev/lives?page=${page}`);
-    const data = await res.json();
+    console.log("HTTPステータス:", res.status);
+
+    const text = await res.text(); // まず文字列として受け取る
+    console.log("レスポンス本文（最初の200文字）:", text.slice(0, 200));
+
+    const data = JSON.parse(text); // JSON.parseで変換
+    if (!data.items) throw new Error("itemsフィールドがありません");
 
     grid.innerHTML = "";
 
@@ -40,7 +46,7 @@ async function loadPage(page) {
       channelRow.className = "channel-row";
       const channelIcon = document.createElement("img");
       channelIcon.className = "channel-icon";
-      channelIcon.src = item.channelIcon || ""; // Workersにチャンネルアイコン追加してもOK
+      channelIcon.src = item.channelIcon || "";
       channelRow.appendChild(channelIcon);
 
       const title = document.createElement("div");
@@ -62,7 +68,7 @@ async function loadPage(page) {
 
   } catch (err) {
     grid.innerHTML = "エラーが発生しました";
-    console.error(err);
+    console.error("詳細エラー:", err);
   }
 }
 
@@ -72,7 +78,6 @@ function selectVideo(video, div) {
   selectedVideoId = video.videoId;
   urlInput.value = video.url;
 
-  // モニター再生イベント（Udonと連携可能）
   console.log("選択された動画ID:", video.videoId);
 }
 
@@ -80,20 +85,17 @@ function selectVideo(video, div) {
 playButton.onclick = () => {
   const url = urlInput.value;
   console.log("再生URL:", url);
-  // ここでUdonに送信してモニター再生可能
 }
 
 // 音量スライダー
 volumeSlider.oninput = () => {
   const vol = volumeSlider.value;
   console.log("音量:", vol);
-  // Udonでモニター音量変更可能
 }
 
 // モニターON/OFF
 monitorToggle.onclick = () => {
   console.log("モニターON/OFF切替");
-  // Udonで切替処理
 }
 
 // 初期ページロード
