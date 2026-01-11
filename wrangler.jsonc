@@ -1,7 +1,8 @@
-name = "vrchat-tablet"
-type = "javascript"   # ここは javascript でOK
-compatibility_date = "2026-01-11"
-
-[site]
-bucket = "./main"     # ここで assets ディレクトリを指定
-entry-point = "workers-site"
+{
+  "name": "vrchat-tablet",
+  "compatibility_date": "2026-01-11",
+  "site": {
+    "bucket": "./main",
+    "entry-point": "workers-site"
+  }
+}
